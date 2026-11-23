@@ -1,0 +1,59 @@
+body {
+    background-color: #f7f5fa;
+    font-family: Arial, sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    /* Se eliminó la sombra morada (box-shadow) aquí */
+}
+
+.main-title {
+    color: #5b4b8a;
+    font-size: 2.2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(91, 75, 138, 0.2);
+}
+
+.section-heading {
+    color: #5b4b8a;
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #dcd6f7;
+    margin: 20px 0;
+}
+
+.centered-image {
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li, p {
+    margin-bottom: 12px;
+}
+
+a {
+    color: #6c5ce7;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #4834d4;
+}

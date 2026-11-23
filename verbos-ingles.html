@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verbos Regulares e Irregulares en Inglés</title>
+<style>
+  :root{
+    --ink:#1f2a24;
+    --paper:#f6f3ea;
+    --line:#d8d1bd;
+    --moss:#3f5c46;
+    --moss-deep:#2c4a34;
+    --clay:#a85c3b;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia', 'Times New Roman', serif;
+    background:var(--paper);
+    color:var(--ink);
+    padding-bottom:60px;
+  }
+  header{
+    padding:48px 24px 32px;
+    text-align:center;
+    border-bottom:2px solid var(--line);
+  }
+  header h1{
+    font-size:2.1rem;
+    margin:0 0 8px;
+    letter-spacing:0.3px;
+    font-weight:600;
+  }
+  header p{
+    margin:0;
+    color:#5a5346;
+    font-family:Verdana, sans-serif;
+    font-size:0.95rem;
+  }
+  .controls{
+    max-width:900px;
+    margin:28px auto 0;
+    padding:0 24px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  #buscador{
+    flex:1;
+    min-width:220px;
+    padding:12px 16px;
+    font-size:1rem;
+    font-family:Verdana, sans-serif;
+    border:2px solid var(--moss);
+    border-radius:6px;
+    background:var(--card);
+    color:var(--ink);
+  }
+  #buscador:focus{outline:2px solid var(--clay);outline-offset:2px;}
+  .tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tab-btn{
+    font-family:Verdana, sans-serif;
+    font-size:0.85rem;
+    padding:9px 16px;
+    border:1px solid var(--moss);
+    background:var(--card);
+    color:var(--moss-deep);
+    border-radius:20px;
+    cursor:pointer;
+  }
+  .tab-btn.activo{
+    background:var(--moss);
+    color:#fff;
+  }
+  main{
+    max-width:900px;
+    margin:32px auto;
+    padding:0 24px;
+  }
+  .grupo{margin-bottom:36px;}
+  .grupo h2{
+    font-size:1.15rem;
+    color:var(--moss-deep);
+    border-bottom:2px solid var(--moss);
+    padding-bottom:6px;
+    margin-bottom:0;
+  }
+  .grupo .sonido{
+    font-family:Verdana, sans-serif;
+    font-size:0.8rem;
+    color:var(--clay);
+    margin:10px 0 6px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card);
+    font-family:Verdana, sans-serif;
+    font-size:0.88rem;
+  }
+  th{
+    text-align:left;
+    padding:10px 12px;
+    background:var(--moss);
+    color:#fff;
+    font-weight:normal;
+    position:sticky;
+    top:0;
+  }
+  td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+  }
+  tr.oculto{display:none;}
+  tr:hover td{background:#eef2ea;}
+  .contador{
+    font-family:Verdana, sans-serif;
+    font-size:0.8rem;
+    color:#5a5346;
+    text-align:right;
+    margin:6px 0 14px;
+  }
+  .vacio{
+    text-align:center;
+    color:#8a8474;
+    font-family:Verdana, sans-serif;
+    padding:30px;
+    display:none;
+  }
+</style>
+<link href="modern.css" rel="stylesheet"/>
+<script defer="" src="grammar-nav.js"></script>
+</head>
+<body class="redesigned-site verbs-page"><header class="site-header"><div class="header-inner"><a class="site-logo" href="index.html"><span class="logo-icon">L<span class="logo-dot">.</span></span><span>Learning <span class="logo-light">English</span></span></a><nav aria-label="Navegación principal" class="site-nav"><a href="index.html">Home</a><a href="Greetings &amp; Introductions.html">Greetings</a><div class="grammar-menu"><button aria-controls="grammar-options" aria-expanded="false" class="grammar-toggle" type="button">Grammar <span aria-hidden="true">▾</span></button><div class="grammar-options" id="grammar-options"><a href="present_simple.html">Present Simple</a><a href="present_continuous.html">Present Continuous</a><a href="past_simple.html">Past Simple</a><a href="past_continuous.html">Past Continuous</a><a href="future.html">Future: Will &amp; Going To</a></div></div><a href="verbos-ingles.html">Verbs</a></nav><span class="header-tag">LEARN · PRACTICE · GROW</span></div></header>
+<header>
+<h1>Verbos Regulares e Irregulares en Inglés</h1>
+<p>Infinitivo · Pasado simple · Participio pasado · Traducción</p>
+</header>
+<div class="controls">
+<input id="buscador" placeholder="Buscar verbo (inglés o español)..." type="text"/>
+<div class="tabs">
+<button class="tab-btn activo" data-filtro="todos">Todos</button>
+<button class="tab-btn" data-filtro="irregular">Irregulares</button>
+<button class="tab-btn" data-filtro="regular">Regulares</button>
+</div>
+</div>
+<main>
+<div class="vacio" id="vacio">No se encontraron verbos con ese criterio.</div>
+<section class="grupo" data-tipo="irregular">
+<h2>Verbos Irregulares</h2>
+<div class="contador" id="contador-irregular"></div>
+<table>
+<thead><tr><th>Infinitivo</th><th>Pasado simple</th><th>Participio pasado</th><th>Español</th></tr></thead>
+<tbody id="tabla-irregular"></tbody>
+</table>
+</section>
+<div class="grupo" data-tipo="regular">
+<h2>Verbos Regulares</h2>
+<p class="sonido">Terminación con sonido /id/</p>
+<table>
+<thead><tr><th>Infinitivo</th><th>Pasado simple</th><th>Participio pasado</th><th>Español</th></tr></thead>
+<tbody class="tabla-regular" id="tabla-id"></tbody>
+</table>
+<p class="sonido">Terminación con sonido /t/</p>
+<table>
+<thead><tr><th>Infinitivo</th><th>Pasado simple</th><th>Participio pasado</th><th>Español</th></tr></thead>
+<tbody class="tabla-regular" id="tabla-t"></tbody>
+</table>
+<p class="sonido">Terminación con sonido /d/</p>
+<table>
+<thead><tr><th>Infinitivo</th><th>Pasado simple</th><th>Participio pasado</th><th>Español</th></tr></thead>
+<tbody class="tabla-regular" id="tabla-d"></tbody>
+</table>
+<div class="contador" id="contador-regular"></div>
+</div>
+</main>
+<script>
+const irregulares = [
+["Arise","Arose","Arisen","Surgir, levantarse"],["Awake","Awoke","Awoken","Despertarse"],
+["Be / am, are, is","Was / Were","Been","Ser / estar"],["Bear","Bore","Borne / Born","Soportar, dar a luz"],
+["Beat","Beat","Beaten","Golpear"],["Become","Became","Become","Llegar a ser"],
+["Begin","Began","Begun","Empezar"],["Bend","Bent","Bent","Doblar"],
+["Bet","Bet","Bet","Apostar"],["Bind","Bound","Bound","Atar, encuadernar"],
+["Bid","Bid","Bid","Pujar"],["Bite","Bit","Bitten","Morder"],
+["Bleed","Bled","Bled","Sangrar"],["Blow","Blew","Blown","Soplar"],
+["Break","Broke","Broken","Romper"],["Breed","Bred","Bred","Criar"],
+["Bring","Brought","Brought","Traer, llevar"],["Broadcast","Broadcast","Broadcast","Radiar"],
+["Build","Built","Built","Edificar"],["Burn","Burnt / Burned","Burnt / Burned","Quemar"],
+["Burst","Burst","Burst","Reventar"],["Buy","Bought","Bought","Comprar"],
+["Cast","Cast","Cast","Arrojar"],["Catch","Caught","Caught","Coger"],
+["Come","Came","Come","Venir"],["Cost","Cost","Cost","Costar"],
+["Cut","Cut","Cut","Cortar"],["Choose","Chose","Chosen","Elegir"],
+["Cling","Clung","Clung","Agarrarse"],["Creep","Crept","Crept","Arrastrarse"],
+["Deal","Dealt","Dealt","Tratar"],["Dig","Dug","Dug","Cavar"],
+["Do (Does)","Did","Done","Hacer"],["Draw","Drew","Drawn","Dibujar"],
+["Dream","Dreamt / Dreamed","Dreamt / Dreamed","Soñar"],["Drink","Drank","Drunk","Beber"],
+["Drive","Drove","Driven","Conducir"],["Eat","Ate","Eaten","Comer"],
+["Fall","Fell","Fallen","Caer"],["Feed","Fed","Fed","Alimentar"],
+["Feel","Felt","Felt","Sentir"],["Fight","Fought","Fought","Luchar"],
+["Find","Found","Found","Encontrar"],["Flee","Fled","Fled","Huir"],
+["Fly","Flew","Flown","Volar"],["Forbid","Forbade","Forbidden","Prohibir"],
+["Forget","Forgot","Forgotten","Olvidar"],["Forgive","Forgave","Forgiven","Perdonar"],
+["Freeze","Froze","Frozen","Helar"],["Get","Got","Got / Gotten","Obtener"],
+["Give","Gave","Given","Dar"],["Go (Goes)","Went","Gone","Ir"],
+["Grow","Grew","Grown","Crecer"],["Grind","Ground","Ground","Moler"],
+["Hang","Hung","Hung","Colgar"],["Have","Had","Had","Haber o tener"],
+["Hear","Heard","Heard","Oír"],["Hide","Hid","Hidden","Ocultar"],
+["Hit","Hit","Hit","Golpear"],["Hold","Held","Held","Agarrar, celebrar"],
+["Hurt","Hurt","Hurt","Herir"],["Keep","Kept","Kept","Conservar"],
+["Know","Knew","Known","Saber, conocer"],["Kneel","Knelt","Knelt","Arrodillarse"],
+["Knit","Knit","Knit","Hacer punto"],["Lay","Laid","Laid","Poner"],
+["Lead","Led","Led","Conducir"],["Lean","Leant","Leant","Apoyarse"],
+["Leap","Leapt","Leapt","Brincar"],["Learn","Learnt / Learned","Learnt / Learned","Aprender"],
+["Leave","Left","Left","Dejar"],["Lend","Lent","Lent","Prestar"],
+["Let","Let","Let","Permitir"],["Lie","Lay","Lain","Echarse"],
+["Light","Lit","Lit","Encender"],["Lose","Lost","Lost","Perder"],
+["Make","Made","Made","Hacer"],["Mean","Meant","Meant","Significar"],
+["Meet","Met","Met","Encontrar"],["Mistake","Mistook","Mistaken","Equivocar"],
+["Overcome","Overcame","Overcome","Vencer"],["Pay","Paid","Paid","Pagar"],
+["Put","Put","Put","Poner"],["Read","Read","Read","Leer"],
+["Ride","Rode","Ridden","Montar"],["Ring","Rang","Rung","Llamar"],
+["Rise","Rose","Risen","Levantarse"],["Run","Ran","Run","Correr"],
+["Say","Said","Said","Decir"],["See","Saw","Seen","Ver"],
+["Seek","Sought","Sought","Buscar"],["Sell","Sold","Sold","Vender"],
+["Send","Sent","Sent","Enviar"],["Set","Set","Set","Poner(se)"],
+["Sew","Sewed","Sewed / Sewn","Coser"],["Shake","Shook","Shaken","Sacudir"],
+["Shear","Shore","Shorn","Esquilar"],["Shine","Shone","Shone","Brillar"],
+["Shoot","Shot","Shot","Disparar"],["Show","Showed","Shown","Mostrar"],
+["Shrink","Shrank","Shrunk","Encogerse"],["Shut","Shut","Shut","Cerrar"],
+["Sing","Sang","Sung","Cantar"],["Sink","Sank","Sunk","Hundir"],
+["Sit","Sat","Sat","Sentarse"],["Sleep","Slept","Slept","Dormir"],
+["Slide","Slid","Slid","Resbalar"],["Smell","Smelt","Smelt","Oler"],
+["Sow","Sowed","Sowed / Sown","Sembrar"],["Speak","Spoke","Spoken","Hablar"],
+["Speed","Sped","Sped","Acelerar"],["Spell","Spelt","Spelt","Deletrear"],
+["Spend","Spent","Spent","Gastar"],["Spill","Spilt / Spilled","Spilt / Spilled","Derramar"],
+["Spin","Spun","Spun","Hilar"],["Spit","Spat","Spat","Escupir"],
+["Split","Split","Split","Hender, partir, rajar"],["Spoil","Spoilt / Spoiled","Spoilt / Spoiled","Estropear"],
+["Spread","Spread","Spread","Extender"],["Spring","Sprang","Sprung","Saltar"],
+["Stand","Stood","Stood","Estar en pie"],["Steal","Stole","Stolen","Robar"],
+["Stick","Stuck","Stuck","Pegar, engomar"],["Sting","Stung","Stung","Picar"],
+["Stink","Stank / Stunk","Stunk","Apestar"],["Stride","Strode","Stridden","Dar zancadas"],
+["Strike","Struck","Struck","Golpear"],["Swear","Swore","Sworn","Jurar"],
+["Sweat","Sweat","Sweat","Sudar"],["Sweep","Swept","Swept","Barrer"],
+["Swell","Swelled","Swollen","Hinchar"],["Swim","Swam","Swum","Nadar"],
+["Swing","Swung","Swung","Columpiarse"],["Take","Took","Taken","Coger"],
+["Teach","Taught","Taught","Enseñar"],["Tear","Tore","Torn","Rasgar"],
+["Tell","Told","Told","Decir"],["Think","Thought","Thought","Pensar"],
+["Throw","Threw","Thrown","Arrojar, tirar"],["Thrust","Thrust","Thrust","Introducir"],
+["Tread","Trod","Trodden","Pisar, hollar"],["Understand","Understood","Understood","Entender"],
+["Undergo","Underwent","Undergone","Sufrir"],["Undertake","Undertook","Undertaken","Emprender"],
+["Wake","Woke","Woken","Despertarse"],["Wear","Wore","Worn","Llevar puesto"],
+["Weave","Wove","Woven","Tejer"],["Weep","Wept","Wept","Llorar"],
+["Wet","Wet","Wet","Mojar"],["Win","Won","Won","Ganar"],
+["Wind","Wound","Wound","Enrollar"],["Withdraw","Withdrew","Withdrawn","Retirarse"],
+["Wring","Wrung","Wrung","Torcer"],["Write","Wrote","Written","Escribir"]
+];
+
+const regularesId = [
+["Accept","Accepted","Accepted","Aceptar"],["Count","Counted","Counted","Contar"],
+["Date","Dated","Dated","Citar"],["End","Ended","Ended","Terminar"],
+["Expect","Expected","Expected","Esperar"],["Intend","Intended","Intended","Intentar"],
+["Need","Needed","Needed","Necesitar"],["Plant","Planted","Planted","Plantar"],
+["Point","Pointed","Pointed","Señalar"],["Rent","Rented","Rented","Rentar"],
+["Repeat","Repeated","Repeated","Repetir"],["Resist","Resisted","Resisted","Resistir"],
+["Start","Started","Started","Empezar"],["Visit","Visited","Visited","Visitar"],
+["Wait","Waited","Waited","Esperar"],["Want","Wanted","Wanted","Querer"]
+];
+
+const regularesT = [
+["Ask","Asked","Asked","Preguntar"],["Cook","Cooked","Cooked","Cocinar"],
+["Dance","Danced","Danced","Bailar"],["Dress","Dressed","Dressed","Vestir"],
+["Erase","Erased","Erased","Borrar"],["Finish","Finished","Finished","Terminar"],
+["Help","Helped","Helped","Ayudar"],["Jump","Jumped","Jumped","Brincar, saltar"],
+["Like","Liked","Liked","Gustar"],["Look","Looked","Looked","Mirar"],
+["Miss","Missed","Missed","Extrañar"],["Practice","Practiced","Practiced","Practicar"],
+["Push","Pushed","Pushed","Empujar"],["Shop","Shopped","Shopped","Comprar"],
+["Smoke","Smoked","Smoked","Fumar"],["Stop","Stopped","Stopped","Detener"],
+["Talk","Talked","Talked","Hablar"],["Use","Used","Used","Usar"],
+["Walk","Walked","Walked","Caminar"],["Wash","Washed","Washed","Lavar"],
+["Wish","Wished","Wished","Desear"],["Work","Worked","Worked","Trabajar"]
+];
+
+const regularesD = [
+["Answer","Answered","Answered","Responder"],["Arrive","Arrived","Arrived","Llegar, arribar"],
+["Belong","Belonged","Belonged","Pertenecer"],["Change","Changed","Changed","Cambiar"],
+["Clean","Cleaned","Cleaned","Limpiar"],["Climb","Climbed","Climbed","Escalar"],
+["Close","Closed","Closed","Cerrar"],["Consider","Considered","Considered","Considerar"],
+["Dare","Dared","Dared","Retar"],["Deliver","Delivered","Delivered","Entregar"],
+["Enjoy","Enjoyed","Enjoyed","Disfrutar"],["Fill","Filled","Filled","Llenar"],
+["Follow","Followed","Followed","Seguir"],["Hurry","Hurried","Hurried","Apurar, darse prisa"],
+["Learn","Learned","Learned","Aprender"],["Listen","Listened","Listened","Escuchar"],
+["Live","Lived","Lived","Vivir"],["Love","Loved","Loved","Amar"],
+["Name","Named","Named","Nombrar"],["Open","Opened","Opened","Abrir"],
+["Order","Ordered","Ordered","Ordenar"],["Plan","Planed","Planed","Planear"],
+["Play","Played","Played","Jugar"],["Rain","Rained","Rained","Llover"],
+["Remember","Remembered","Remembered","Recordar"],["Show","Showed","Showed","Mostrar"],
+["Stay","Stayed","Stayed","Permanecer"],["Study","Studied","Studied","Estudiar"],
+["Travel","Traveled","Traveled","Viajar"],["Try","Tried","Tried","Intentar, tratar"],
+["Turn","Turned","Turned","Voltear, dar vuelta"]
+];
+
+function pintarFila(v){
+  const tr = document.createElement("tr");
+  tr.dataset.texto = v.join(" ").toLowerCase();
+  tr.innerHTML = `<td>${v[0]}</td><td>${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>`;
+  return tr;
+}
+
+function llenarTabla(id, datos){
+  const tbody = document.getElementById(id);
+  datos.forEach(v => tbody.appendChild(pintarFila(v)));
+}
+
+llenarTabla("tabla-irregular", irregulares);
+llenarTabla("tabla-id", regularesId);
+llenarTabla("tabla-t", regularesT);
+llenarTabla("tabla-d", regularesD);
+
+document.getElementById("contador-irregular").textContent = irregulares.length + " verbos";
+document.getElementById("contador-regular").textContent = (regularesId.length + regularesT.length + regularesD.length) + " verbos";
+
+let filtroActivo = "todos";
+const buscador = document.getElementById("buscador");
+const vacio = document.getElementById("vacio");
+const gruposDom = document.querySelectorAll(".grupo");
+
+function aplicarFiltros(){
+  const texto = buscador.value.trim().toLowerCase();
+  let visiblesTotal = 0;
+
+  gruposDom.forEach(grupo => {
+    const tipo = grupo.dataset.tipo;
+    const mostrarGrupo = filtroActivo === "todos" || filtroActivo === tipo;
+    let visiblesGrupo = 0;
+
+    grupo.querySelectorAll("tbody tr").forEach(fila => {
+      const coincide = !texto || fila.dataset.texto.includes(texto);
+      const mostrar = mostrarGrupo && coincide;
+      fila.classList.toggle("oculto", !mostrar);
+      if(mostrar) visiblesGrupo++;
+    });
+
+    grupo.style.display = (mostrarGrupo && visiblesGrupo > 0) ? "" : "none";
+    visiblesTotal += visiblesGrupo;
+  });
+
+  vacio.style.display = visiblesTotal === 0 ? "block" : "none";
+}
+
+buscador.addEventListener("input", aplicarFiltros);
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("activo"));
+    btn.classList.add("activo");
+    filtroActivo = btn.dataset.filtro;
+    aplicarFiltros();
+  });
+});
+</script>
+</body>
+</html>

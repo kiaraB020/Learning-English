@@ -1,0 +1,166 @@
+
+.color_body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* TITULO PRINCIPAL */
+.main-title {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+}
+
+.intro-description {
+    font-size: 1.1rem;
+    color: #000000;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #e1e8ed;
+    margin: 20px 0;
+}
+
+
+.section-box {
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    color: #000000;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.section-text {
+    font-size: 1rem;
+    color: #000000;
+}
+
+.sub-heading {
+    color: #000000;
+    margin-top: 15px;
+}
+
+/* LISTA VERB TO BE */
+.custom-list {
+    list-style-type: none;
+    background-color: transparent; 
+    border-left: none; 
+    padding-left: 0; 
+    margin-top: 10px;
+}
+
+.custom-list li {
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.term-title {
+    font-weight: bold;
+    color: #000000;
+}
+
+.example-text {
+    color: #000000;
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+IMAGEN CENTRO
+.centered-image {
+    display: block;
+    margin: 25px auto;
+    border-radius: 8px;
+    border: 2px solid #e1e8ed;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    max-width: 100%;
+    height: auto;
+}
+
+
+.links-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.links-list li {
+    margin: 8px 0;
+}
+
+.links-list a {
+    display: inline;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: #16191b;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.links-list a:hover {
+    background-color: transparent;
+    transform: none;
+    color: #1b4f72;
+}
+
+TABLA PHRASAL VERBS
+.styled-phrasal-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #b2dfdb;
+    background-color: #ffffff;
+    margin: 20px 0;
+}
+
+.styled-phrasal-table .section-title-table {
+    background-color: #00796b;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.styled-phrasal-table .column-header {
+    background-color: #b2dfdb;
+    color: #000000;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 15px;
+    border: 1px solid #b2dfdb;
+    width: 50%;
+}
+
+.styled-phrasal-table td {
+    border: 1px solid #b2dfdb;
+    padding: 10px 15px;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+
+.footer-title {
+    color: #000000;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
